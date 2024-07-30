@@ -1,0 +1,43 @@
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = ["setuptools>=61.0"]
+
+[project]
+name = "fotop-extractor"
+version = "0.0.1"
+authors = [{ name = "Jhunu Fernandes", email = "jhunu.fernandes@gmail.com" }]
+description = "a another python scraping repo"
+readme = "README.md"
+requires-python = ">=3.12"
+classifiers = [
+  "Programming Language :: Python :: 3.12",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+dependencies = [
+    "beautifulsoup4 == 4.12.3",
+    "httpx == 0.27.0"
+]
+
+[project.optional-dependencies]
+dev = ["coverage", "mkdocs", "ruff"]
+tests = ["coverage"]
+stage = ["build", "coverage"]
+
+[project.urls]
+"Homepage" = "https://github.com/jhunufernandes/fotop-extractor"
+"Bug Tracker" = "https://github.com/jhunufernandes/fotop-extractor/issues"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.coverage.report]
+omit = ["tests/*"]
+show_missing = true
+
+[tool.coverage.run]
+branch = true
+command_line = "-m unittest"
+
+[tool.ruff]
+line-length = 120
